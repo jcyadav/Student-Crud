@@ -16,11 +16,11 @@ POST /api/register
 POST /api/login
 
 Protected:
-GET /api/students
-POST /api/students
-GET /api/students/{id}
-PUT /api/students/{id}
-DELETE /api/students/{id}
+GET /api/v1/students
+POST /api/v1/students
+GET /api/v1/students/{id}
+PUT /api/v1/students/{id}
+DELETE /api/v1/students/{id}
 
 Header:
 Authorization: Bearer TOKEN
