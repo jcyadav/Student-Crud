@@ -57,12 +57,12 @@ class StudentController extends Controller
 
         $student->update($request->all());
 
-        return redirect()->route('students.index')->with('success','Date updated successfully');
+        return redirect()->route('students.index')->with('success','Date updated successfully!');
     }
 
     public function destroy(Student $student)
     {
         $student->delete();
-        return back()->with('success','Deleted');
+        return back()->with('success','Data deleted successfully!');
     }
 }    

@@ -44,10 +44,18 @@ class StudentApiController extends Controller
     ], 201); // Created
 }
 
-   public function show($id)
+public function show($id)
 {
-     $student = Student::create($request->all());
-     return response()->json([
+    $student = Student::find($id);
+
+    if (!$student) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Student not found'
+        ], 404);
+    }
+
+    return response()->json([
         'status' => true,
         'message' => 'Student fetched successfully',
         'data' => new StudentResource($student)
@@ -84,7 +92,14 @@ class StudentApiController extends Controller
 
     public function destroy($id)
 {
-    $student = Student::findOrFail($id);
+    $student = Student::find($id);
+
+    if (!$student) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Student not found'
+        ], 404);
+    }
     $student->delete();
 
     return response()->json([
